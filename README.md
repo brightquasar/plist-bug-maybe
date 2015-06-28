@@ -1,17 +1,17 @@
-Fistly; this project (as is) loads the tableView Cells very nicely (while using the current, 
-smaller, People.plist file. That file has 11 dictionaies in it. I added 19 more dicitonaries  
-giving a total of 30 (that ver of the plist file can be found next to the other one but named 
-PeopleLarge.plist) I have tripple-checked every key in every dictionary for spelling and 
-absence of a trailing space etcetera. I cannot see why the app does not successfully parse the
-Lager plist file -- I would expect it to only find the 11 keys which my code is looking for 
-anyway. I don't recall the exact method I used to insert those 11 images into the 
-images.xcassets file, but they have been working there, and, I have never had images that were 
-dragged into the bundle fail to be found by the plist. So, for now, I am leaving those 19 there. 
+Firstly; this project (as is), and upon not finding an /archive file, loads the tableView Cells 
+very nicely, though I was forced to hand-code my own People.plist file -- the thing has a total 
+of 30 Dictionaries, But I have only been successful in using the first few and cannot spot why.
    
-Once I get the plist problem solved, and finish my "guessing game" code, and add one more lable
-to the Cell -- then we will try to debug the unarchiving of the images bug. 
+It is now time to try to debug the unarchiving (or archiving) of the images bug -- images taken 
+from the photo lib do persist, but the original Cell images only show when loaded from the plist
+ file. Subsequent runs result in good text and PhotoLib restorations, but the other Cell images 
+are either not populated, or, are overwritten with nothingness.  
 
-I cannot see why it is not reloading and using the archive file which is written to Document 
-dir. It does seem to be loading the /archive file, because it does populate the Cells with the 
-label text. Only the images are missing. And, as I understand it, that text can only come from 
-the same Person/people object in which the images should also be stored.  
+I should also like to fix the big in which the Detail view image reverts to my hard-coded 
+storyboard image whenever the persons last name is changed to an incorrect name. That I presume 
+will require some fancy delegation of some sort, or, persisting a value in DetailViewController 
+which could then be subsequently read by ViewController.swift and used to put-up the lost image.  
+
+Since the text and added images are being loading from the /archive file, I do not understand 
+why my images are not appearing as they should. As I understand it, that text and those Photo- 
+lib images can only come from the same Person/people object in which the images should also be 
